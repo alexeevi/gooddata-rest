@@ -1,0 +1,23 @@
+<html>
+<body>
+<script>
+    function beforeSubmit(form) {
+        form.action = "http://localhost:8080/words/" + form.category.options[form.category.selectedIndex].text + "/" + form.word.value;
+    }
+</script>
+<form method="post" onsubmit="beforeSubmit(this)" target="_blank">
+    <select name="category">
+        <option>noun</option>
+        <option>verb</option>
+        <option>adjective</option>
+        <option>crap</option>
+    </select>
+    <input type="text" name="word"/>
+    <input type="submit" value="Send"/>
+</form>
+
+<form method="post" action="http://localhost:8080/sentences/generate" target="_blank">
+    <input type="submit" value="Generate sentence!"/>
+</form>
+</body>
+</html>
